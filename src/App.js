@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 
 function App() {
@@ -16,6 +15,8 @@ function App() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    const submissionDate = new Date().toISOString().split("T")[0]; // <-- Add this line
+
     await fetch("https://n8n-service-fjos.onrender.com/webhook/bca5435f-16cf-4d9a-9eb9-56b92f76895c", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -24,6 +25,7 @@ function App() {
         Email: form.Email,
         Task: form.Task,
         "Due Date": form.DueDate,
+        "Submission Date": submissionDate, // <-- Send this to n8n
       }),
     });
 
