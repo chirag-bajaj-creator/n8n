@@ -25,7 +25,7 @@ function App() {
         Email: form.Email,
         Task: form.Task,
         "Due Date": form.DueDate,
-        "Submission Date": submissionDate, // <-- Send this to n8n
+        "Submission Date": form.submissionDate, // <-- Send this to n8n
       }),
     });
 
